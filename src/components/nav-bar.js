@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 export default class Navigation extends Component{
+  
   render(){
     return(
       <nav className="navbar navbar-default navbar-fixed-top w3-light-grey">
