@@ -1,25 +1,50 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router';
+
 import Slider from 'react-slick';
+import MovieIcon from './movie-icon';
 
 export default class MovieSlider extends Component{
+
+  returnMovieIcons(){
+    return this.props.movie_list.map((movie)=><div><MovieIcon movie={movie}/></div>)
+  }
 
   render(){
     const settings = {
       dots: true,
       infinite: true,
       speed: 500,
-      slidesToShow: 3,
-      slidesToScroll: 1
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      responsive: [
+  {
+    breakpoint: 768,
+    settings: {
+      dots: false,
+      arrows: false,
+      centerMode: true,
+      centerPadding: '10px',
+      slidesToShow: 1
+    }
+  },
+  {
+    breakpoint: 480,
+    settings: {
+      dots: false,
+      arrows: false,
+      centerMode: true,
+      centerPadding: '0px',
+      slidesToShow: 1
+    }
+  }
+]
   };
     return(
     <div className="w3-center">
-      <Slider {...settings} autoplay={true}>
-        <div><h3>1</h3></div>
-        <div><h3>2</h3></div>
-        <div><h3>3</h3></div>
-        <div><h3>4</h3></div>
-        <div><h3>5</h3></div>
-        <div><h3>6</h3></div>
+      <Slider {...settings} autoplay={true} adaptiveHeight={true}>
+        {this.returnMovieIcons()}
       </Slider>
     </div>
     )

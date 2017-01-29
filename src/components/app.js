@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Navigation from './nav-bar'
-import NaveBar from './nav';
+// import NaveBar from './nav';
 import Footer from './footer';
-import MovieSlider from './movie-slider';
+// import MovieSlider from './movie-slider';
 
 export default class App extends Component {
   render() {
@@ -10,14 +10,8 @@ export default class App extends Component {
       <div className="container-fluid">
       <Navigation/>
       <br/>
-        <NaveBar/>
+        {this.props.children}
         <Footer/>
-        <MovieSlider/>
-        <br/><br/><br/>
-        <MovieSlider/>
-        <br/><br/><br/>
-        <MovieSlider/>
-        <br/><br/><br/>
       </div>
     );
   }

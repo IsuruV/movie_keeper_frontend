@@ -17,6 +17,10 @@ body {
       font-weight: 400;
       margin-bottom: 30px;
   }
+
+  #list{
+
+  }
   .jumbotron {
       background-color: #f4511e;
       color: #fff;
