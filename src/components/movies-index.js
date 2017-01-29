@@ -22,18 +22,27 @@ class MoviesIndex extends Component{
     this.props.fetchInTheaters();
   }
   render(){
+    if(this.props.most_popular.length == 0 || this.props.highly_rated.length == 0 || this.props.in_theaters.length  == 0 ){
+        return (<div> Loading... </div>)
+    }
     console.log("popular",this.props.most_popular)
-    console.log("highly_rated",this.props.highly_rated)
-    console.log("in_theaters",this.props.in_theaters)
+    // console.log("highly_rated",this.props.highly_rated)
+    // console.log("in_theaters",this.props.in_theaters)
     return(
       <div>
         <NaveBar/>
-          <MovieSlider/>
-          <br/><br/><br/>
-          <MovieSlider/>
-          <br/><br/><br/>
-          <MovieSlider/>
-          <br/><br/><br/>
+        <h3> Most Popular </h3>
+         <div id="list" className="jumbotron w3-light-grey">
+            <MovieSlider movie_list={this.props.most_popular}/>
+          </div>
+          <h3> Highly Rated </h3>
+          <div id="list" className="jumbotron w3-light-grey">
+            <MovieSlider movie_list={this.props.highly_rated}/>
+          </div>
+          <h3> In Theaters </h3>
+          <div id="list" className="jumbotron w3-light-grey">
+            <MovieSlider movie_list={this.props.in_theaters}/>
+          </div>
       </div>
     )
   }
