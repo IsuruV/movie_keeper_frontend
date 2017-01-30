@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 const URL = "http://image.tmdb.org/t/p/w154/"
 const MovieIcon = (props)=>{
   return(
-    <div><img alt={props.movie.post_path} src={`${URL}${props.movie.poster_path}`}/></div>
+    <div id={props.id}><img alt={props.movie.poster_path} src={`${URL}${props.movie.poster_path}`}/></div>
   )
 }
 

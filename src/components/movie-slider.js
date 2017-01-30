@@ -43,7 +43,7 @@ export default class MovieSlider extends Component{
   };
     return(
     <div className="w3-center">
-      <Slider {...settings} autoplay={true} adaptiveHeight={true}>
+      <Slider {...settings} autoplay={true}>
         {this.returnMovieIcons()}
       </Slider>
     </div>

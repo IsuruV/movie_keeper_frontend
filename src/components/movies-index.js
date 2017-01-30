@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-// import {bindActionCreators} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {Link} from 'react-router';
 import NaveBar from './nav';
@@ -25,7 +24,7 @@ class MoviesIndex extends Component{
     if(this.props.most_popular.length == 0 || this.props.highly_rated.length == 0 || this.props.in_theaters.length  == 0 ){
         return (<div> Loading... </div>)
     }
-    console.log("popular",this.props.most_popular)
+    // console.log("popular",this.props.most_popular)
     // console.log("highly_rated",this.props.highly_rated)
     // console.log("in_theaters",this.props.in_theaters)
     return(
