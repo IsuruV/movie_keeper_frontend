@@ -11,7 +11,7 @@ class MovieIndexIcons extends Component{
  if (this.props.searchedMovie){
    return(
      <div>
-       <SearchedItemsIndex/>
+       <SearchedItemsIndex searchedMovies={this.props.searchedMovie}/>
      </div>
    )
  }else if ((!this.props.searchedMovie) && (this.props.most_popular || this.props.highly_rated || this.props.in_theaters)){
