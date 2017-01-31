@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
 import {searchMovies, searchMoviesSubmit, deleteSearchedMovie} from '../actions/index';
 import MovieIcon from './movie-icon';
 
@@ -32,7 +33,9 @@ class NaveBar extends Component{
    return(
      <div>
      <div id="jumbotron" className="jumbotron w3-pale-green">
+     <Link to={'/'}>
        <h1>Movie Genesis</h1>
+      </Link>
        <p>Search. Save. Watch</p>
        <form onSubmit={this.formSubmission.bind(this)}>
          <div className="input-group">

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import SearchedItemsRow from './searched-items-row';
 import SearchedItem from './searched-item';
 
-class SearchedItemsIndex extends Component{
+export default class SearchedItemsIndex extends Component{
   constructor(props){
     super(props);
     this.state={moviesFormatted: []}
@@ -37,8 +37,11 @@ class SearchedItemsIndex extends Component{
     this.splitMovies(movies);
     // debugger;
   }
+
   render(){
-    console.log(this.state.moviesFormatted);
+    if (this.state.moviesFormatted.length == 0){
+      return (<div> No Movies found :( </div>)
+    }
     return(
       <div className="album text-muted">
             <div className="container">
@@ -48,9 +51,3 @@ class SearchedItemsIndex extends Component{
     )
   }
 }
-
-function mapStateToProps(state){
-
-}
-
-export default SearchedItemsIndex
