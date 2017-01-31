@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import {searchMovies, searchMoviesSubmit} from '../actions/index';
+import {searchMovies, searchMoviesSubmit, deleteSearchedMovie} from '../actions/index';
 import MovieIcon from './movie-icon';
 
 class NaveBar extends Component{
@@ -16,12 +16,14 @@ class NaveBar extends Component{
         this.setState({search_term: ev.target.value});
       }else{
         this.setState({search_term: null});
+        this.props.deleteSearchedMovie();
     }
     }
 
     formSubmission(ev){
       ev.preventDefault();
       this.props.searchMoviesSubmit(this.state.search_term);
+      this.setState({search_term: null});
     }
 
  render(){
@@ -59,4 +61,4 @@ function mapStateToProps(state){
   return {search: state.movies.search}
 }
 
-export default connect(mapStateToProps, {searchMovies, searchMoviesSubmit})(NaveBar);
+export default connect(mapStateToProps, {searchMovies, searchMoviesSubmit, deleteSearchedMovie})(NaveBar);

@@ -5,6 +5,7 @@ export const FETCH_RATED = 'FETCH_RATED';
 export const FETCH_THEATER = 'FETCH_THEATER';
 export const SEARCH = 'SEARCH';
 export const SEARCH_SUBMIT = 'SEARCH_SUBMIT';
+export const DELETE_SEARCH = 'DELETE_SEARCH';
 const ROOT_URL = 'http://localhost:3000'
 
 
@@ -48,5 +49,11 @@ export function searchMoviesSubmit(search){
   return {
     type: SEARCH_SUBMIT,
     payload: request
+  }
+}
+
+export function deleteSearchedMovie(){
+  return{
+    type: DELETE_SEARCH
   }
 }
