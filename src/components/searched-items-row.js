@@ -15,12 +15,3 @@ export default class SearchedItemsRow extends Component{
     )
   }
 }
-
-
-
-// {this.props.moviesFormatted.map((movies)=> {
-//   <div className="row">
-//       <SearchedItem movies={movies}/>
-//   </div>
-// })
-// }

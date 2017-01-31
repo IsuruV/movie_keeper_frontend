@@ -47,7 +47,7 @@ class NaveBar extends Component{
        {this.state.search_term ?
        <div id="search_results" className="w3-white">
         <ul id="possible-search-term">
-          {this.props.search.map(movie => <ol> <MovieIcon id={"search-icon"} img_id={"search-text"} vertical={true} movie={movie}/> </ol> )}
+          {this.props.search.slice(0,5).map(movie => <ol> <MovieIcon id={"search-icon"} img_id={"search-text"} vertical={true} movie={movie}/> </ol> )}
         </ul>
        </div>
        : null }
