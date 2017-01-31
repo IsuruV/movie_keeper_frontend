@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import {searchMovies} from '../actions/index';
+import {searchMovies, searchMoviesSubmit} from '../actions/index';
 import MovieIcon from './movie-icon';
+
 class NaveBar extends Component{
     constructor(props){
       super(props);
@@ -12,10 +13,15 @@ class NaveBar extends Component{
       // debugger;
       if(ev.target.value.length > 2){
         this.props.searchMovies(ev.target.value);
-        this.setState({search_term: "results"});
+        this.setState({search_term: ev.target.value});
       }else{
         this.setState({search_term: null});
     }
+    }
+
+    formSubmission(ev){
+      ev.preventDefault();
+      this.props.searchMoviesSubmit(this.state.search_term);
     }
 
  render(){
@@ -26,10 +32,10 @@ class NaveBar extends Component{
      <div id="jumbotron" className="jumbotron w3-pale-green">
        <h1>Movie Genesis</h1>
        <p>Search. Save. Watch</p>
-       <form>
+       <form onSubmit={this.formSubmission.bind(this)}>
          <div className="input-group">
           <ul>
-           <input type="email" className="form-control"  placeholder="Movie Title" required onChange={this.onSearch.bind(this)}/>
+           <input type="text" className="form-control"  placeholder="Movie Title" onChange={this.onSearch.bind(this)} required/>
            </ul>
            <div className="input-group-btn">
              <button type="button" className="btn btn-danger">Search</button>
@@ -38,8 +44,8 @@ class NaveBar extends Component{
        </form>
        {this.state.search_term ?
        <div id="search_results" className="w3-white">
-        <ul>
-          {this.props.search.map(movie => <ol> <MovieIcon id={"search-icon"} movie={movie}/> </ol> )}
+        <ul id="possible-search-term">
+          {this.props.search.map(movie => <ol> <MovieIcon id={"search-icon"} img_id={"search-text"} vertical={true} movie={movie}/> </ol> )}
         </ul>
        </div>
        : null }
@@ -53,4 +59,4 @@ function mapStateToProps(state){
   return {search: state.movies.search}
 }
 
-export default connect(mapStateToProps, {searchMovies})(NaveBar);
+export default connect(mapStateToProps, {searchMovies, searchMoviesSubmit})(NaveBar);

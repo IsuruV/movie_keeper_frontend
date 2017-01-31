@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import {Link} from 'react-router';
 import NaveBar from './nav';
 import MovieSlider from './movie-slider';
+import SearchedItemsIndex from './searched-items-index';
 
 import {fetchMostPopular, fetchHighlyRated, fetchInTheaters} from '../actions/index.js'
 
@@ -23,8 +24,16 @@ class MoviesIndex extends Component{
   render(){
     if(this.props.most_popular.length == 0 || this.props.highly_rated.length == 0 || this.props.in_theaters.length  == 0 ){
         return (<div> Loading... </div>)
-    }
-    // console.log("popular",this.props.most_popular)
+    }else if(this.props.searchedMovie){
+        return (
+          <div>
+            <NaveBar/>
+            <SearchedItemsIndex/>
+          </div>
+        )
+    }else if (!this.props.searchedMovie){
+      debugger;
+    console.log("popular",this.props.most_popular)
     // console.log("highly_rated",this.props.highly_rated)
     // console.log("in_theaters",this.props.in_theaters)
     return(
@@ -44,11 +53,12 @@ class MoviesIndex extends Component{
           </div>
       </div>
     )
+    }
   }
 }
 
 function mapStateToProps(state){
-  return {most_popular: state.movies.most_popular, highly_rated: state.movies.highly_rated, in_theaters: state.movies.in_theaters}
+  return {most_popular: state.movies.most_popular, highly_rated: state.movies.highly_rated, in_theaters: state.movies.in_theaters, searchedMovie: state.movies.searcheMovie}
 }
 
 
