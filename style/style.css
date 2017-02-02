@@ -31,6 +31,15 @@ body {
     padding-left: 10em;
   }
 
+  #actor img{
+    width: 80%;
+    height: 40%;
+    padding-bottom: 10px;
+  }
+  #actor p{
+    font-size: 12px;
+  }
+
   #search-icon img{
     width: 100%;
     height: 100%%;

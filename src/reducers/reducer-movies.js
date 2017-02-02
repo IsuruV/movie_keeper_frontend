@@ -1,4 +1,4 @@
-import {FETCH_POPULAR, FETCH_RATED, FETCH_THEATER, SEARCH, SEARCH_SUBMIT, DELETE_SEARCH} from '../actions/index';
+import {FETCH_POPULAR, FETCH_RATED, FETCH_THEATER, SEARCH, SEARCH_SUBMIT, DELETE_SEARCH, RESET_STATE} from '../actions/index';
 const INITAL_STATE = {most_popular: [], highly_rated: [], in_theaters: [], search: null, searchedMovie: null}
 
 export default function(state = INITAL_STATE, action){
@@ -15,6 +15,8 @@ export default function(state = INITAL_STATE, action){
       return {...state, searchedMovie: action.payload.data}
     case DELETE_SEARCH:
       return {...state, searchedMovie: null}
+    case RESET_STATE:
+      return {...state,most_popular: [], highly_rated: [], in_theaters: [], search: null, searchedMovie: null }
     default:
       return state;
   }

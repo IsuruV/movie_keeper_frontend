@@ -1,10 +1,21 @@
 import React, {Component} from 'react';
+import Actor from './actor';
+
 
 const Actors = (props) =>{
   return(
       <div className="well w3-pale-green">
-        <h4>Side Widget Well</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+        <h3> Actors </h3>
+        <table>
+          <tbody>
+          <th>
+          <td>Name</td> <td>Character</td>
+         </th>
+            {props.actors.map((actor)=>
+              <Actor actor={actor}/>)
+            }
+          </tbody>
+        </table>
       </div>
   )
 }

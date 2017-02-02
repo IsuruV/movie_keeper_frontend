@@ -7,6 +7,7 @@ export const SEARCH = 'SEARCH';
 export const SEARCH_SUBMIT = 'SEARCH_SUBMIT';
 export const DELETE_SEARCH = 'DELETE_SEARCH';
 export const GET_MOVIE = 'GET_MOVIE';
+export const RESET_STATE = 'RESET_STATE';
 
 const ROOT_URL = 'http://localhost:3000'
 export const IMG_URL = "http://image.tmdb.org/t/p/w154/"
@@ -66,5 +67,11 @@ export function getMovieInfo(id){
   return{
     type: GET_MOVIE,
     payload: request
+  }
+}
+
+export function resetState(){
+  return{
+    type: RESET_STATE
   }
 }

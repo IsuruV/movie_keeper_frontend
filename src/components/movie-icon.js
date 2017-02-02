@@ -1,12 +1,19 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
+import {getMovieInfo} from '../actions/index';
+
+import {connect} from 'react-redux';
+
 const URL = "http://image.tmdb.org/t/p/w154/"
 
 class MovieIcon extends Component{
 
-  onClick(ev){
-    ev.preventDefault();
-    var id = ev.target.id;
+  static contextTypes = {
+  router: PropTypes.object
+  }
+
+  onClick(id){
+    this.props.getMovieInfo(id);
   }
   getYear(date_string){
     var miliSec = Date.parse(date_string);
@@ -19,16 +26,25 @@ class MovieIcon extends Component{
   if (this.props.vertical){
     return(
       <div>
-      <div><Link to={"movies/"+this.props.movie.id}>{`${this.props.movie.title} (${this.getYear(this.props.movie.release_date)})`}</Link></div>
+      <div><Link to={"/movies/"+this.props.movie.id}>{`${this.props.movie.title} (${this.getYear(this.props.movie.release_date)})`}</Link></div>
       </div>
     )
+  }else if(this.props.onShowPage){
+    return(
+    <div id={this.props.id}>
+    <Link onClick={this.onClick.bind(this,this.props.movie.id)}>
+      <img alt={this.props.movie.poster_path} src={`${URL}${this.props.movie.poster_path}`}/>
+      <div id={this.props.img_id}>{`${this.props.movie.title}(${this.getYear(this.props.movie.release_date)})`}</div>
+    </Link>
+    </div>
+  )
   }else {
     return(
       <div id={this.props.id}>
-      <Link to={"movies/"+this.props.movie.id}>
+      <Link to={"/movies/"+this.props.movie.id}>
         <img alt={this.props.movie.poster_path} src={`${URL}${this.props.movie.poster_path}`}/>
+        <div id={this.props.img_id}>{`${this.props.movie.title}(${this.getYear(this.props.movie.release_date)})`}</div>
       </Link>
-        <Link to={"movies/"+this.props.movie.id}><div id={this.props.img_id}>{`${this.props.movie.title}(${this.getYear(this.props.movie.release_date)})`}</div></Link>
       </div>
     )
     }
@@ -36,7 +52,8 @@ class MovieIcon extends Component{
   }
 }
 
-export default MovieIcon;
+// export default MovieIcon;
+export default connect(null, {getMovieInfo})(MovieIcon);
 
 
 
