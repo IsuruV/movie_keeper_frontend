@@ -3,7 +3,7 @@ import {Route, IndexRoute} from 'react-router';
 
 import App from './components/app';
 import MoviesIndex from './components/movies-index';
-import Movie from './components/movies-show';
+import Movie from './components/show_page/movies-show';
 
 export default(
   <Route path= '/' component={App}>
