@@ -5,7 +5,7 @@ const Actor = (props) => {
     <div>
     <tr id="actor">
       <td>
-        <img src={`http://image.tmdb.org/t/p/w154${props.actor.profile_path}`}> </img>
+        <img src={`http://image.tmdb.org/t/p/w154${props.actor.profile_path}`}/>
       </td>
       <td>
         <p>{props.actor.name}</p>

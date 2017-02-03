@@ -26,7 +26,7 @@ class MovieSearch extends Component{
   }
 
   onSubmission(props){
-    this.props.searchMoviesSubmit(props.searchTerm).then(()=>{
+    this.props.searchMoviesSubmit(this.state.search_term).then(()=>{
       this.context.router.push('/')
     })
   }
