@@ -28,7 +28,7 @@ const MovieDetail = (props) =>{
     <div id="embedded">
     <h3>Trailer</h3>
     <iframe title="YouTube video player" className="well  w3-pale-green" type="text/html"
-      width="480" height="390" src={`http://www.youtube.com/embed/${props.movie.trailers.youtube[0]['source']}`}
+      width="600em" height="390em" src={`http://www.youtube.com/embed/${props.movie.trailers.youtube[0]['source']}`}
       frameBorder="0" allowFullScreen></iframe>
     </div>
       <br/>

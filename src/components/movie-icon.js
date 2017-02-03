@@ -26,25 +26,16 @@ class MovieIcon extends Component{
   if (this.props.vertical){
     return(
       <div>
-      <div><Link to={"/movies/"+this.props.movie.id}>{`${this.props.movie.title} (${this.getYear(this.props.movie.release_date)})`}</Link></div>
+      <div><a href={"/movies/"+this.props.movie.id}>{`${this.props.movie.title} (${this.getYear(this.props.movie.release_date)})`}</a></div>
       </div>
     )
-  }else if(this.props.onShowPage){
-    return(
-    <div id={this.props.id}>
-    <Link onClick={this.onClick.bind(this,this.props.movie.id)}>
-      <img alt={this.props.movie.poster_path} src={`${URL}${this.props.movie.poster_path}`}/>
-      <div id={this.props.img_id}>{`${this.props.movie.title}(${this.getYear(this.props.movie.release_date)})`}</div>
-    </Link>
-    </div>
-  )
   }else {
     return(
       <div id={this.props.id}>
-      <Link to={"/movies/"+this.props.movie.id}>
+      <a href={"/movies/"+this.props.movie.id}>
         <img alt={this.props.movie.poster_path} src={`${URL}${this.props.movie.poster_path}`}/>
         <div id={this.props.img_id}>{`${this.props.movie.title}(${this.getYear(this.props.movie.release_date)})`}</div>
-      </Link>
+      </a>
       </div>
     )
     }

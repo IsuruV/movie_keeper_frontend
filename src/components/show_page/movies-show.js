@@ -1,10 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
-import axios from 'axios';
-const ROOT_URL = 'http://localhost:3000'
-export const GET_MOVIE = 'GET_MOVIE';
-
 import CommentInput from './comment-input';
 import MovieSearch from './movie-search';
 import Categories from './categories';
@@ -12,20 +7,8 @@ import Actors from './actors';
 import MovieDetail from './movie-detail';
 import Comments from './comments';
 import MovieSlider from '../movie-slider';
+import {getMovieInfo, deleteSearchedMovie, resetState} from '../../actions/index';
 
-function getMovieInfo(id){
-  const request = axios.get(`${ROOT_URL}/movies/${id}.json`);
-  return{
-    type: GET_MOVIE,
-    payload: request
-  }
-}
-
-function resetState(){
-  return{
-    type: RESET_STATE
-  }
-}
 
 class Movie extends Component{
   componentWillMount(){
@@ -33,7 +16,6 @@ class Movie extends Component{
   }
 
   render(){
-    console.log(this.props.movie)
     if (!this.props.movie){
       return <div> Loading..</div>
     }
@@ -55,7 +37,7 @@ class Movie extends Component{
               </div>
             <div className="col-md-4">
               <MovieSearch/>
-                <Categories/>
+                <Categories genres={this.props.movie.genres}/>
                 <Actors actors={this.props.movie.cast}/>
             </div>
             </div>

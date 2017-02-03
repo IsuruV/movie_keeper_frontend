@@ -33,9 +33,9 @@ class NaveBar extends Component{
    return(
      <div>
      <div id="jumbotron" className="jumbotron w3-pale-green">
-     <Link to={'/'}>
+     <a href='/'>
        <h1>Movie Genesis</h1>
-      </Link>
+      </a>
        <p>Search. Save. Watch</p>
        <form onSubmit={this.formSubmission.bind(this)}>
          <div className="input-group">

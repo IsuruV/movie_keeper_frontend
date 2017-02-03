@@ -6,8 +6,9 @@ import {connect} from 'react-redux';
 
 
 class MovieIndexIcons extends Component{
-  render(){
 
+  render(){
+      console.log(this.props.searchedMovie);
  if (this.props.searchedMovie){
    return(
      <div>

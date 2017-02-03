@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router';
 export default class Navigation extends Component{
-  
+
   render(){
     return(
       <nav className="navbar navbar-default navbar-fixed-top w3-light-grey">
@@ -16,6 +16,9 @@ export default class Navigation extends Component{
     <div className="collapse navbar-collapse" id="myNavbar">
       <ul className="nav navbar-nav navbar-right">
         <li><a href="#contact">My Watch List</a></li>
+      </ul>
+      <ul className="nav navbar-nav navbar-left">
+          <li><Link to={"/"}>Home</Link></li>
       </ul>
     </div>
   </div>
