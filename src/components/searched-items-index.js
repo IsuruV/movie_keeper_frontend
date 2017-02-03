@@ -29,6 +29,7 @@ export default class SearchedItemsIndex extends Component{
       }
       moviesArray.push(movies);
       this.setState({moviesFormatted: moviesArray});
+
     }
   }
 

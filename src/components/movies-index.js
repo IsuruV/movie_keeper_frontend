@@ -21,9 +21,12 @@ class MoviesIndex extends Component{
     this.props.fetchHighlyRated();
     this.props.fetchInTheaters();
   }
+  componentWillUnMount(){
+    debugger;
+  }
   render(){
     if(this.props.most_popular.length == 0 || this.props.highly_rated.length == 0 || this.props.in_theaters.length  == 0 ){
-        return (<div> Loading... </div>)
+        return <div className="w3-center"><img src="http://etechcorners.devhtmlfive.com/wp-content/uploads/2014/12/loader.gif"></img></div>
     }
     return(
       <div>

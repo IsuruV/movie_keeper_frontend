@@ -8,7 +8,7 @@ import MovieIcon from './movie-icon';
 export default class MovieSlider extends Component{
 
   returnMovieIcons(){
-    return this.props.movie_list.map((movie)=><div><MovieIcon img_id="image-title" movie={movie}/></div>)
+    return this.props.movie_list.map((movie)=><div><MovieIcon key={movie.title} img_id="image-title" movie={movie} onShowPage={this.props.onShowPage}/></div>)
   }
 
   render(){
