@@ -75,3 +75,12 @@ export function resetState(){
     type: RESET_STATE
   }
 }
+
+// export const LINKS = "LINKS";
+// export function fetchLinks(title){
+//   const request = axios.get(`${ROOT_URL}/movies/title/${title}.json`);
+//   return{
+//     type: LINKS,
+//     payload: request
+//   }
+// }

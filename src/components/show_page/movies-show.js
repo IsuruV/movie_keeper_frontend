@@ -9,7 +9,8 @@ import Comments from './comments';
 import MovieSlider from '../movie-slider';
 import {getMovieInfo, deleteSearchedMovie, resetState} from '../../actions/index';
 import {Link} from 'react-router';
-
+import Modal from 'react-modal';
+import Links from './links';
 import Movies from '../../reducers/reducer-movies.js'
 
 class Movie extends Component{
@@ -21,6 +22,7 @@ class Movie extends Component{
   }
 
   componentWillReceiveProps(nextProps){
+
     if (this.props.params.id != nextProps.params.id){
       this.props.resetState();
       this.props.getMovieInfo(nextProps.params.id);
@@ -55,6 +57,7 @@ class Movie extends Component{
           </div>
           </div>
         </div>
+        <Links title={this.props.movie.title} links={'this.props.movie.watch_links'}/>
       </div>
     )
   }

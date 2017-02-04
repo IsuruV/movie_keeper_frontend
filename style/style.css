@@ -339,3 +339,26 @@ h1 { font-size: 1.5em; margin: 10px; }
 .rating > input:checked ~ label, /* show gold star when clicked */
 .rating:not(:checked) > label:hover, /* hover current star */
 .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+
+.modal-show {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .modal-show {
+    width: 500px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-show {
+    width: 500px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-show {
+    width: 500px;
+  }
+}
