@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import Modal from 'react-modal';
-import ROOT_URL from '../../actions/index';
+import {fetchLinks} from '../../actions/index';
 
 class Links extends Component{
   constructor(props){
     super(props);
-    this.state={easterEgg:"", modelIsOpen: false, links: null};
+    this.state={easterEgg:"", modelIsOpen: false};
     this.handleKeys = this.handleKeys.bind(this);
   }
     openModel(ev){
@@ -24,6 +25,9 @@ class Links extends Component{
       }
     }
 
+    componentWillMount(){
+      this.props.fetchLinks(this.props.title);
+    }
     componentDidMount(){
       document.addEventListener("keydown", this.handleKeys);
     }
@@ -43,7 +47,7 @@ class Links extends Component{
         transform             : 'translate(-50%, -50%)'
       }
     };
-
+    if (this.props.links){
     return(
       <Modal
         style={customStyles}
@@ -52,11 +56,15 @@ class Links extends Component{
           <div className="modal-show">
               <div className="modal-header">
                 <button type="button" className="close" data-dismiss="modal" onClick={this.closeModal.bind(this)} >&times;</button>
+                <div className="w3-center"><h3>Watch Links</h3></div>
               </div>
             <div className="list-group">
-              <a href="#" className="list-group-item w3-center">First item</a>
-              <a href="#" className="list-group-item w3-center">Second item</a>
-              <a href="#" className="list-group-item w3-center">Third item</a>
+              {
+                this.props.links.map((link)=>
+              <a href={link} className="list-group-item w3-center" target="_blank">{link}</a>
+
+            )}
+
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-default" data-dismiss="modal" onClick={this.closeModal.bind(this)}>Close</button>
@@ -64,7 +72,14 @@ class Links extends Component{
           </div>
         </Modal>
     )
+  }else{
+    return <div> </div>
+  }
   }
 }
 
-export default Links;
+function mapStateToProps(state){
+  return {links: state.movies.links}
+}
+
+export default connect(mapStateToProps,{fetchLinks})(Links);

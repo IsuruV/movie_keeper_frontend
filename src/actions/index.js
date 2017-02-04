@@ -76,11 +76,11 @@ export function resetState(){
   }
 }
 
-// export const LINKS = "LINKS";
-// export function fetchLinks(title){
-//   const request = axios.get(`${ROOT_URL}/movies/title/${title}.json`);
-//   return{
-//     type: LINKS,
-//     payload: request
-//   }
-// }
+export const GET_LINKS = "GET_LINKS";
+export function fetchLinks(title){
+  const request = axios.get(`${ROOT_URL}/movies/title/${title}.json`);
+  return{
+    type: GET_LINKS,
+    payload: request
+  }
+}

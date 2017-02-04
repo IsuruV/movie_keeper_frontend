@@ -1,5 +1,5 @@
-import {FETCH_POPULAR, FETCH_RATED, FETCH_THEATER, SEARCH, SEARCH_SUBMIT, DELETE_SEARCH, RESET_STATE, GET_MOVIE} from '../actions/index';
-const INITAL_STATE = {most_popular: [], highly_rated: [], in_theaters: [], search: null, searchedMovie: null, movie: null}
+import {FETCH_POPULAR, FETCH_RATED, FETCH_THEATER, SEARCH, SEARCH_SUBMIT, DELETE_SEARCH, RESET_STATE, GET_MOVIE, GET_LINKS} from '../actions/index';
+const INITAL_STATE = {most_popular: [], highly_rated: [], in_theaters: [], search: null, searchedMovie: null, movie: null, links: null}
 
 export default function(state = INITAL_STATE, action){
   switch(action.type){
@@ -20,6 +20,8 @@ export default function(state = INITAL_STATE, action){
       return {...state, movie: action.payload.data}
     case RESET_STATE:
       return {...state, movie: null }
+    case GET_LINKS:
+      return {...state, links: action.payload.data}
     default:
       return state;
   }
