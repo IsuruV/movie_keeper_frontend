@@ -12,7 +12,6 @@ export default function(state = INITAL_STATE, action){
     case SEARCH:
       return {...state, search: action.payload.data}
     case SEARCH_SUBMIT:
-      debugger;
       return {...state, searchedMovie: action.payload.data}
     case DELETE_SEARCH:
       return {...state, searchedMovie: null}

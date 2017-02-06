@@ -25,7 +25,7 @@ class MovieSearch extends Component{
   }
 
   onSubmission(props){
-    
+
     this.props.searchMoviesSubmit(this.state.search_term).then(()=>{
       this.context.router.push('/')
     })
@@ -66,6 +66,6 @@ function mapStateToProps(state){
 }
 
 export default reduxForm({
-  form: 'PostsNewForm',
+  form: 'SearchForm',
   fields: ['searchTerm']
 },mapStateToProps, {searchMoviesSubmit, searchMovies, deleteSearchedMovie})(MovieSearch);

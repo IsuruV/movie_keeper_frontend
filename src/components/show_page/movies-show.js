@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import CommentInput from './comment-input';
+import CommentForm from './comment-form';
 import MovieSearch from './movie-search';
 import Categories from './categories';
 import Actors from './actors';
@@ -12,7 +12,7 @@ import {Link} from 'react-router';
 import Modal from 'react-modal';
 import Links from './links';
 import Movies from '../../reducers/reducer-movies.js'
-
+import FbComments from './fb-comments';
 class Movie extends Component{
 
 
@@ -46,9 +46,9 @@ class Movie extends Component{
                 <MovieSlider movie_list={this.props.movie.similar_movies}/>
                 <hr/>
               </div>
-                <CommentInput/>
                 <hr/>
-                <Comments/>
+                <hr/>
+                <FbComments movieId={this.props.params.id}/>
             </div>
           <div className="col-md-4">
             <MovieSearch/>
