@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
-export default class Navigation extends Component{
+import {connect} from 'react-redux';
+import {getFBID} from '../actions/index';
+import FbLogin from './fb-login';
+
+ class Navigation extends Component{
+
+    shouldComponentUpdate(nextProps, nextState){
+      if(this.props.fb_id != nextProps.fb_id){
+        return true;
+      }
+    }
 
   render(){
     return(
@@ -15,7 +25,7 @@ export default class Navigation extends Component{
     </div>
     <div className="collapse navbar-collapse" id="myNavbar">
       <ul className="nav navbar-nav navbar-right">
-        <li><a href="#contact">My Watch List</a></li>
+        <li>{this.props.fb_id? <a>Watch List</a> : <FbLogin/> }</li>
       </ul>
       <ul className="nav navbar-nav navbar-left">
           <li><Link to={"/"}>Home</Link></li>
@@ -26,3 +36,18 @@ export default class Navigation extends Component{
     )
   }
 }
+
+function mapStateToProps(state){
+  return {fb_id: state.movies.fb_id}
+}
+export default connect(mapStateToProps, {getFBID})(Navigation);
+
+/* make the API call */
+// FB.api(
+//     "/{user-id}",
+//     function (response) {
+//       if (response && !response.error) {
+//         /* handle the result */
+//       }
+//     }
+// );

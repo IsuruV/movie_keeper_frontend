@@ -8,13 +8,12 @@ import {connect} from 'react-redux';
 class MovieIndexIcons extends Component{
 
   render(){
-      console.log(this.props.searchedMovie);
- if (this.props.searchedMovie){
-   return(
-     <div>
-       <SearchedItemsIndex searchedMovies={this.props.searchedMovie}/>
-     </div>
-   )
+    if (this.props.searchedMovie){
+      return(
+        <div>
+        <SearchedItemsIndex searchedMovies={this.props.searchedMovie}/>
+        </div>
+      )
  }else if ((!this.props.searchedMovie) && (this.props.most_popular || this.props.highly_rated || this.props.in_theaters)){
    return(
      <div>

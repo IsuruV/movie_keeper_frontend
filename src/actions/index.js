@@ -75,3 +75,29 @@ export function resetState(){
     type: RESET_STATE
   }
 }
+
+export const GET_LINKS = "GET_LINKS";
+export function fetchLinks(title){
+  const request = axios.get(`${ROOT_URL}/movies/title/${title}.json`);
+  return{
+    type: GET_LINKS,
+    payload: request
+  }
+}
+
+export const GET_FB_ID = "GET_FB_ID";
+// fb_id=${user.id}?first_name=${user.first_name}?last_name=${user.last_name}?email=${user.email}
+export function getFBID(user){
+  const request = axios.post(`${ROOT_URL}/users.json`,{
+    user:{
+      fb_id: user.id,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      email: user.email
+    }
+  })
+  return{
+    type: GET_FB_ID,
+    payload: request
+  }
+}

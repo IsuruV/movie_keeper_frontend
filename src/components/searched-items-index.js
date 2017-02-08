@@ -36,7 +36,6 @@ export default class SearchedItemsIndex extends Component{
   componentWillMount(){
     var movies = this.props.searchedMovies
     this.splitMovies(movies);
-    // debugger;
   }
 
   render(){
