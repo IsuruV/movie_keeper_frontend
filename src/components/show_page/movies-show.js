@@ -13,8 +13,10 @@ import Modal from 'react-modal';
 import Links from './links';
 import Movies from '../../reducers/reducer-movies.js'
 import FbComments from './fb-comments';
-class Movie extends Component{
 
+import FbLogin from '../fb-login';
+
+class Movie extends Component{
 
   componentWillMount(){
     this.props.resetState();
@@ -30,7 +32,7 @@ class Movie extends Component{
   }
 
   render(){
-    console.log(this.props.movie)
+    // console.log(this.props.movie)
     if (!this.props.movie){
       return <div className="w3-center"><img src="http://etechcorners.devhtmlfive.com/wp-content/uploads/2014/12/loader.gif"></img></div>
     }

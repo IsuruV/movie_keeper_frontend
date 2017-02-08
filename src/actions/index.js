@@ -84,3 +84,20 @@ export function fetchLinks(title){
     payload: request
   }
 }
+
+export const GET_FB_ID = "GET_FB_ID";
+// fb_id=${user.id}?first_name=${user.first_name}?last_name=${user.last_name}?email=${user.email}
+export function getFBID(user){
+  const request = axios.post(`${ROOT_URL}/users.json`,{
+    user:{
+      fb_id: user.id,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      email: user.email
+    }
+  })
+  return{
+    type: GET_FB_ID,
+    payload: request
+  }
+}
