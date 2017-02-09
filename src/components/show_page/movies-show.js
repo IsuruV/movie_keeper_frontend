@@ -13,8 +13,8 @@ import Modal from 'react-modal';
 import Links from './links';
 import Movies from '../../reducers/reducer-movies.js'
 import FbComments from './fb-comments';
-
 import FbLogin from '../fb-login';
+// import FacebookProvider, { Comments } from 'react-facebook';
 
 class Movie extends Component{
 
@@ -26,13 +26,13 @@ class Movie extends Component{
   componentWillReceiveProps(nextProps){
 
     if (this.props.params.id != nextProps.params.id){
-      this.props.resetState();
+      // this.props.resetState();
       this.props.getMovieInfo(nextProps.params.id);
     }
   }
 
   render(){
-    // console.log(this.props.movie)
+    console.log(this.props.movie)
     if (!this.props.movie){
       return <div className="w3-center"><img src="http://etechcorners.devhtmlfive.com/wp-content/uploads/2014/12/loader.gif"></img></div>
     }

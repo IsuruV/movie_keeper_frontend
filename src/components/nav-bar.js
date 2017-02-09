@@ -25,10 +25,20 @@ import FbLogin from './fb-login';
     </div>
     <div className="collapse navbar-collapse" id="myNavbar">
       <ul className="nav navbar-nav navbar-right">
-        <li>{this.props.fb_id? <a>Watch List</a> : <FbLogin/> }</li>
+        <li>{this.props.fb_id? <div className="dropdown show">
+          <a className="btn btn-secondary btn-lg dropdown-toggle w3-light-grey" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Watch List
+          </a>
+
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <div className="dropdown-item" href="#">Action</div>
+            <div className="dropdown-item" href="#">Another action</div>
+            <div className="dropdown-item" href="#">Something else here</div>
+          </div>
+        </div> : <FbLogin/> }</li>
       </ul>
       <ul className="nav navbar-nav navbar-left">
-          <li><Link to={"/"}>Home</Link></li>
+          <li><Link className="btn btn-secondary btn-lg w3-light-grey" to={"/"}>Home</Link></li>
       </ul>
     </div>
   </div>

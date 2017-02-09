@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import Stars from './star-rating';
+import AddMovie from './add-movie';
 
 const MovieDetail = (props) =>{
   return(
   <div>
 <div className="well w3-pale-green">
+  <AddMovie/>
   <table>
     <tbody>
       <tr>

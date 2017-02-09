@@ -101,3 +101,28 @@ export function getFBID(user){
     payload: request
   }
 }
+
+
+export const ADD_MOVIE = "ADD_MOVIE";
+export function addMovie(movie, fb_id){
+  const request = axios.post(`${ROOT_URL}/users/${fb_id}/movies.json`,{
+    movie:{
+      movie_id: movie.id,
+      title: movie.title,
+      poster_path: movie.poster_path
+    }
+  })
+  return{
+    type: ADD_MOVIE,
+    payload: request
+  }
+}
+
+export const GET_MOVIE_LIST = "Get_MOVIE_LIST";
+export function getMovieList(fb_id){
+  const request= axios.get(`${ROOT_URL}/users/${fb_id}/movies.json`)
+  return{
+    type: GET_MOVIE_LIST,
+    payload: request
+  }
+}
