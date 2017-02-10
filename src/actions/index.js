@@ -126,3 +126,12 @@ export function getMovieList(fb_id){
     payload: request
   }
 }
+
+export const DELETE_MOVIE = "DELETE_MOVIE";
+export function deleteMovie(fb_id, movie_id){
+  const request = axios.post(`${ROOT_URL}/users/${fb_id}/movies/${movie_id}.json`)
+  return {
+    type: DELETE_MOVIE,
+    payload: request
+  }
+}

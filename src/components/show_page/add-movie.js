@@ -6,7 +6,6 @@ class AddMovie extends Component{
 
   addMovie(ev){
     ev.preventDefault();
-    // debugger;
     this.props.addMovie(this.props.movie, this.props.fb_id)
   }
   checkIfAdded(){
@@ -15,7 +14,6 @@ class AddMovie extends Component{
     var exists = '';
     for(var i=0; i< watch_list.length; i++){
       if(watch_list[i].movie_id == movie.id){
-        debugger;
         return true;
         break;
       }
