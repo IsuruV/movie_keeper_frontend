@@ -38,7 +38,6 @@ class MovieSearch extends Component{
     <div>
       <form onSubmit={handleSubmit(this.onSubmission.bind(this))}>
       <div className="well w3-pale-green">
-          <h4>Movie Search</h4>
           <div className="input-group">
               <input type="text" className="form-control" {...searchTerm} onChange={this.onSearch.bind(this)}/>
               <span className="input-group-btn">

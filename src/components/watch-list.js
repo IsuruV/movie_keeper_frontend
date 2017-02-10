@@ -23,7 +23,7 @@ class WatchList extends Component{
           {this.props.watch_list?
             this.props.watch_list.map((movie)=>
           <div className="dropdown-item">
-            <div id={movie.id}>{`${movie.title}`}</div>
+            <Link id="list-movie" to={"/movies/"+movie.movie_id}><div id={movie.id}>{`${movie.title}`}</div></Link>
           </div>):
         <div> No Movies added </div>}
         </div>

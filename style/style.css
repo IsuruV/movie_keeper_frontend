@@ -337,7 +337,9 @@ h1 { font-size: 1.5em; margin: 10px; }
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/
-
+#list-movie{
+    color: green;
+}
 .rating > input:checked ~ label, /* show gold star when clicked */
 .rating:not(:checked) > label:hover, /* hover current star */
 .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */

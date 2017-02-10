@@ -43,8 +43,8 @@ class Movie extends Component{
             <div className="col-lg-8">
               <MovieDetail movie={this.props.movie}/>
               <hr/>
+              <h3>Similar Movies</h3>
               <div className="well w3-light-grey">
-                <h3>Similar Movies</h3>
                 <MovieSlider movie_list={this.props.movie.similar_movies}/>
                 <hr/>
               </div>
@@ -53,8 +53,11 @@ class Movie extends Component{
                 <FbComments movieId={this.props.params.id}/>
             </div>
           <div className="col-md-4">
+            <h4>Movie Search</h4>
             <MovieSearch/>
+              <h4 className="">Genres</h4>
               <Categories genres={this.props.movie.genres}/>
+              <h3> Actors </h3>
               <Actors actors={this.props.movie.cast}/>
           </div>
           </div>
