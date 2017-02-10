@@ -5,7 +5,6 @@ import Actor from './actor';
 const Actors = (props) =>{
   return(
       <div className="well w3-pale-green">
-        <h3> Actors </h3>
         <table>
           <tbody>
           <th>

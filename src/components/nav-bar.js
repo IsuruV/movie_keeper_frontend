@@ -3,6 +3,7 @@ import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import {getFBID} from '../actions/index';
 import FbLogin from './fb-login';
+import WatchList from './watch-list';
 
  class Navigation extends Component{
 
@@ -25,10 +26,10 @@ import FbLogin from './fb-login';
     </div>
     <div className="collapse navbar-collapse" id="myNavbar">
       <ul className="nav navbar-nav navbar-right">
-        <li>{this.props.fb_id? <a>Watch List</a> : <FbLogin/> }</li>
+        <li>{this.props.fb_id? <WatchList/> : <FbLogin/> }</li>
       </ul>
       <ul className="nav navbar-nav navbar-left">
-          <li><Link to={"/"}>Home</Link></li>
+          <li><Link className="btn btn-secondary btn-lg w3-light-grey" to={"/"}>Home</Link></li>
       </ul>
     </div>
   </div>

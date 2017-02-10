@@ -1,5 +1,5 @@
-import {FETCH_POPULAR, FETCH_RATED, FETCH_THEATER, SEARCH, SEARCH_SUBMIT, DELETE_SEARCH, RESET_STATE, GET_MOVIE, GET_LINKS, GET_FB_ID} from '../actions/index';
-const INITAL_STATE = {most_popular: [], highly_rated: [], in_theaters: [], search: null, searchedMovie: null, movie: null, links: null, fb_id: localStorage.fb_id, play_list: []}
+import {FETCH_POPULAR, FETCH_RATED, FETCH_THEATER, SEARCH, SEARCH_SUBMIT, DELETE_SEARCH, RESET_STATE, GET_MOVIE, GET_LINKS, GET_FB_ID, ADD_MOVIE,DELETE_MOVIE, GET_MOVIE_LIST} from '../actions/index';
+const INITAL_STATE = {most_popular: [], highly_rated: [], in_theaters: [], search: null, searchedMovie: null, movie: null, links: null, fb_id: localStorage.fb_id, movie_list: []}
 
 export default function(state = INITAL_STATE, action){
   switch(action.type){
@@ -22,8 +22,13 @@ export default function(state = INITAL_STATE, action){
     case GET_LINKS:
       return {...state, links: action.payload.data}
     case GET_FB_ID:
-      debugger;
       return {...state, fb_id: action.payload.data.fb_id}
+    case ADD_MOVIE:
+      return {...state, movie_list: action.payload.data}
+    case GET_MOVIE_LIST:
+      return {...state, movie_list: action.payload.data}
+    case DELETE_MOVIE:
+      return {...state, movie_list: action.payload.data}
     default:
       return state;
   }
