@@ -19,7 +19,7 @@ import FbLogin from '../fb-login';
 class Movie extends Component{
 
   componentWillMount(){
-    this.props.resetState();
+    // this.props.resetState();
     this.props.getMovieInfo(this.props.params.id);
   }
 

@@ -27,12 +27,12 @@ class MovieIcon extends Component{
     )
   }else {
     return(
-      <div id={this.props.id}>
       <Link to={"/movies/"+this.props.movie.id}>
+      <div id={this.props.id}>
         <img alt={this.props.movie.poster_path} src={`${URL}${this.props.movie.poster_path}`}/>
         <div id={this.props.img_id}>{`${this.props.movie.title}(${this.getYear(this.props.movie.release_date)})`}</div>
-      </Link>
       </div>
+      </Link>
     )
     }
 
