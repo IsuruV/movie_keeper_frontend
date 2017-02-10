@@ -59,7 +59,9 @@ body {
     background: #e0e0e0;
   }*/
 
-
+#movie-list{
+  overflow:scroll;
+}
 
   #jumbotron {
       background-color: #f4511e;
