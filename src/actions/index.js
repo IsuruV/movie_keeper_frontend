@@ -10,7 +10,7 @@ export const GET_MOVIE = 'GET_MOVIE';
 export const RESET_STATE = 'RESET_STATE';
 
 // const ROOT_URL = 'http://localhost:3000'
-const ROOT_URL = 'https://api-movie-gen.herokuapp.com/'
+const ROOT_URL = 'https://rails-movie-gen.herokuapp.com'
 export const IMG_URL = "http://image.tmdb.org/t/p/w154/"
 
 
