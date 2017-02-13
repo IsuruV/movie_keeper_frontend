@@ -30,6 +30,10 @@ class Movie extends Component{
       this.props.getMovieInfo(nextProps.params.id);
     }
   }
+  componentWillUnmount(){
+    // debugger;
+    this.props.resetState();
+  }
 
   render(){
     console.log(this.props.movie)

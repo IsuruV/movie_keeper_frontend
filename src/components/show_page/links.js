@@ -16,6 +16,7 @@ class Links extends Component{
     closeModal(ev){
       ev.preventDefault();
       this.setState({modelIsOpen:false});
+      this.setState({easterEgg: ""})
     }
     handleKeys(ev){
       this.setState({easterEgg: [...this.state.easterEgg, ev.key]})
@@ -28,12 +29,12 @@ class Links extends Component{
     componentWillMount(){
       this.props.fetchLinks(this.props.title);
     }
+
     componentDidMount(){
       document.addEventListener("keydown", this.handleKeys);
     }
     componentWillUnMount(){
       document.removeEventListener("keydown",this.handleKeys);
-      this.setState({links: null})
     }
 
   render(){

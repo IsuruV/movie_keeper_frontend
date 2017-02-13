@@ -24,13 +24,14 @@ class WatchList extends Component{
   }
 
   render(){
+    console.log(this.props.watch_list.length)
     return(
       <div className="dropdown show">
         <a className="btn btn-secondary btn-lg dropdown-toggle w3-light-grey"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Watch List
         </a>
         <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          {this.props.watch_list?
+          {this.props.watch_list && this.props.watch_list.length > 0?
             this.props.watch_list.map((movie)=>
         <div className="dropdown-item">
             <div id={movie.id}><Link id="list-movie" to={"/movies/"+movie.movie_id}>{`${movie.title}`}</Link>
