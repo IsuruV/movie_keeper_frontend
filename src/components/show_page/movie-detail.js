@@ -35,8 +35,10 @@ const MovieDetail = (props) =>{
       frameBorder="0" allowFullScreen></iframe>
     </div>
       <br/>
+      <br/>
+      <br/>
     <hr/>
-    <p>{props.movie.overview}</p>
+    <div><p>{props.movie.overview}</p></div>
     <hr/>
   </div>
   )
