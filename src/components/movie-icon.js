@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 export const URL = "http://image.tmdb.org/t/p/w154/"
 
 class MovieIcon extends Component{
-  
+
   getYear(date_string){
     var miliSec = Date.parse(date_string);
     var newDate = new Date(miliSec);
@@ -25,7 +25,7 @@ class MovieIcon extends Component{
       <Link to={"/movies/"+this.props.movie.id}>
       <div id={this.props.id}>
         <img alt={this.props.movie.poster_path} src={`${URL}${this.props.movie.poster_path}`}/>
-        <div id={this.props.img_id}>{`${this.props.movie.title}(${this.getYear(this.props.movie.release_date)})`}</div>
+        <div className="w3-center" id={this.props.img_id}>{`${this.props.movie.title}(${this.getYear(this.props.movie.release_date)})`}</div>
       </div>
       </Link>
     )
