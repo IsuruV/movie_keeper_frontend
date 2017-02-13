@@ -4,7 +4,7 @@ import {getMovieInfo} from '../actions/index';
 
 import {connect} from 'react-redux';
 
-export const URL = "http://image.tmdb.org/t/p/w154/"
+export const URL = "https://image.tmdb.org/t/p/w154/"
 
 class MovieIcon extends Component{
 
@@ -25,7 +25,7 @@ class MovieIcon extends Component{
       <Link to={"/movies/"+this.props.movie.id}>
       <div id={this.props.id}>
         <img alt={this.props.movie.poster_path} src={`${URL}${this.props.movie.poster_path}`}/>
-        <div className="w3-center" id={this.props.img_id}>{`${this.props.movie.title}(${this.getYear(this.props.movie.release_date)})`}</div>
+        <div className="w3-center"><p id={this.props.img_id} className="w3-center">{`${this.props.movie.title}(${this.getYear(this.props.movie.release_date)})`}</p></div>
       </div>
       </Link>
     )
