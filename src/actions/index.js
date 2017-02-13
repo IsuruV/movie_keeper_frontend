@@ -11,7 +11,7 @@ export const RESET_STATE = 'RESET_STATE';
 
 // const ROOT_URL = 'http://localhost:3000'
 const ROOT_URL = 'https://rails-api-movie-gen-isuruv.c9users.io'
-export const IMG_URL = "http://image.tmdb.org/t/p/w154/"
+export const IMG_URL = "https://image.tmdb.org/t/p/w154/"
 
 
 export function fetchMostPopular(){
