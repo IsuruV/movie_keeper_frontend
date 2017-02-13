@@ -37,8 +37,11 @@ const MovieDetail = (props) =>{
       <br/>
       <br/>
       <br/>
+      <br/>
+      <br/>
+      <br/>
     <hr/>
-    <div><p>{props.movie.overview}</p></div>
+    <p>{props.movie.overview}</p>
     <hr/>
   </div>
   )
