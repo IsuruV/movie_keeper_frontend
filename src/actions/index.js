@@ -10,12 +10,12 @@ export const GET_MOVIE = 'GET_MOVIE';
 export const RESET_STATE = 'RESET_STATE';
 
 // const ROOT_URL = 'http://localhost:3000'
-const ROOT_URL = 'https://movie-gen-rails.herokuapp.com'
+const ROOT_URL = 'https://rails-api-movie-gen-isuruv.c9users.io'
 export const IMG_URL = "http://image.tmdb.org/t/p/w154/"
 
 
 export function fetchMostPopular(){
-  const request = axios.get(`${ROOT_URL}/movies/most_popular.json`);
+  const request = axios.get(`${ROOT_URL}/movies/most_popular`);
   return{
     type: FETCH_POPULAR,
     payload: request
@@ -24,7 +24,7 @@ export function fetchMostPopular(){
 }
 
 export function fetchHighlyRated(){
-  const request = axios.get(`${ROOT_URL}/movies/highly_rated.json`);
+  const request = axios.get(`${ROOT_URL}/movies/highly_rated`);
   return{
     type: FETCH_RATED,
     payload: request
@@ -32,7 +32,7 @@ export function fetchHighlyRated(){
 }
 
 export function fetchInTheaters(){
-  const request = axios.get(`${ROOT_URL}/movies/in_theaters.json`);
+  const request = axios.get(`${ROOT_URL}/movies/in_theaters`);
   return{
     type: FETCH_THEATER,
     payload: request
@@ -64,7 +64,7 @@ export function deleteSearchedMovie(){
 }
 
 export function getMovieInfo(id){
-  const request = axios.get(`${ROOT_URL}/movies/${id}.json`);
+  const request = axios.get(`${ROOT_URL}/movies/${id}`);
   return{
     type: GET_MOVIE,
     payload: request
@@ -79,7 +79,7 @@ export function resetState(){
 
 export const GET_LINKS = "GET_LINKS";
 export function fetchLinks(title){
-  const request = axios.get(`${ROOT_URL}/movies/title/${title}.json`);
+  const request = axios.get(`${ROOT_URL}/movies/title/${title}`);
   return{
     type: GET_LINKS,
     payload: request
@@ -89,7 +89,7 @@ export function fetchLinks(title){
 export const GET_FB_ID = "GET_FB_ID";
 // fb_id=${user.id}?first_name=${user.first_name}?last_name=${user.last_name}?email=${user.email}
 export function getFBID(user){
-  const request = axios.post(`${ROOT_URL}/users.json`,{
+  const request = axios.post(`${ROOT_URL}/users`,{
     user:{
       fb_id: user.id,
       first_name: user.first_name,
@@ -106,7 +106,7 @@ export function getFBID(user){
 
 export const ADD_MOVIE = "ADD_MOVIE";
 export function addMovie(movie, fb_id){
-  const request = axios.post(`${ROOT_URL}/users/${fb_id}/movies.json`,{
+  const request = axios.post(`${ROOT_URL}/users/${fb_id}/movies`,{
     movie:{
       movie_id: movie.id,
       title: movie.title,
@@ -121,7 +121,7 @@ export function addMovie(movie, fb_id){
 
 export const GET_MOVIE_LIST = "Get_MOVIE_LIST";
 export function getMovieList(fb_id){
-  const request= axios.get(`${ROOT_URL}/users/${fb_id}/movies.json`)
+  const request= axios.get(`${ROOT_URL}/users/${fb_id}/movies`)
   return{
     type: GET_MOVIE_LIST,
     payload: request
@@ -130,7 +130,7 @@ export function getMovieList(fb_id){
 
 export const DELETE_MOVIE = "DELETE_MOVIE";
 export function deleteMovie(fb_id, movie_id){
-  const request = axios.post(`${ROOT_URL}/users/${fb_id}/movies/${movie_id}.json`)
+  const request = axios.post(`${ROOT_URL}/users/${fb_id}/movies/${movie_id}`)
   return {
     type: DELETE_MOVIE,
     payload: request
